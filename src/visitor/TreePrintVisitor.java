@@ -6,13 +6,13 @@ import treestructure.Leaf;
 public class TreePrintVisitor implements TreeVisitor{
 
     @Override
-    public void visit(Leaf menuItem) {
-        System.out.println("Visiting leaf: "+menuItem.getName());
+    public void visit(Leaf leaf) {
+        System.out.println("Visiting leaf: "+leaf.getName());
     }
 
     @Override
-    public void visit(Node menu) {
-         System.out.println("Visiting node: "+menu.getName());
+    public void visit(Node node) {
+        System.out.println("Visiting node: "+node.getName());
     }
     
 }

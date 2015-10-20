@@ -5,26 +5,28 @@ import visitor.TreeVisitor;
 
 public class Node extends TreeComponent{
     String name;
-    ArrayList<TreeComponent> treeComponents=new ArrayList<TreeComponent>();
+    ArrayList<TreeComponent> treeComponents=new ArrayList<>();
     
     public Node(String name){
         this.name=name;
     }
-    
+
     @Override
     public String getName(){
          return this.name;
     }
     
     @Override
-    public void add(TreeComponent menuComponent){
-        treeComponents.add(menuComponent);
+    public void add(TreeComponent treeComponent){
+        treeComponents.add(treeComponent);
     }
     
-    public void remove(TreeComponent menuComponent){
-        treeComponents.remove(menuComponent);
+    @Override
+    public void remove(TreeComponent treeComponent){
+        treeComponents.remove(treeComponent);
     }
     
+    @Override
     public TreeComponent getChild(int i){
         return (TreeComponent)treeComponents.get(i);
     }
@@ -32,8 +34,8 @@ public class Node extends TreeComponent{
     @Override
     public void accept(TreeVisitor visitor) {
         visitor.visit(this);
-        for(TreeComponent menuComponent:treeComponents){
-            menuComponent.accept(visitor);
+        for(TreeComponent treeComponent:treeComponents){
+            treeComponent.accept(visitor);
         }
     }
 }
